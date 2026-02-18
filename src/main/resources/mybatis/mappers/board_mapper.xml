@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.nexacro.uiadapter.mapper.BoardMapper">
+	
+    <!--  POJO -->
+     <select id="select_datalist" parameterType="example.nexacro.uiadapter.pojo.Board" resultType="example.nexacro.uiadapter.pojo.Board">
+            SELECT
+                A.TITLE AS TITLE, 
+                A.REG_ID AS REG_ID, 
+                A.REG_DATE AS REG_DATE, 
+                A.POST_ID AS POST_ID, 
+                A.CONTENTS AS CONTENTS, 
+                A.COMMUNITY_ID AS COMMUNITY_ID,
+                A.HIDDEN_INFO AS HIDDEN_INFO,
+                A.HIT_COUNT AS HIT_COUNT
+            FROM TB_BOARD A
+            WHERE 1=1
+            <if test="searchKeyword != null">
+	           	<if test="searchCondition == 'TITLE'">
+					AND TITLE LIKE '%' || #{searchKeyword} || '%'
+				</if>
+				<if test="searchCondition == 'contents'">
+	                AND CONTENTS LIKE '%' || #{searchKeyword} || '%'
+	            </if>
+	        </if>
+    </select>
+    
+    <insert id="insert_board" parameterType="example.nexacro.uiadapter.pojo.Board">
+            INSERT INTO TB_BOARD (
+                TITLE,
+                REG_ID,
+                CONTENTS,
+                COMMUNITY_ID
+            ) VALUES (
+                #{title},
+                #{regId},
+                #{contents},
+                #{communityId}
+            )
+    </insert>
+    
+      <update id="update_board" parameterType="example.nexacro.uiadapter.pojo.Board">
+            UPDATE TB_BOARD 
+            SET TITLE=#{title}
+                , REG_ID=#{regId}
+                , CONTENTS=#{contents}
+                , COMMUNITY_ID=#{communityId}
+            WHERE POST_ID=#{postId}
+    </update>
+    
+    <delete id="delete_update_board" parameterType="example.nexacro.uiadapter.pojo.Board">
+            DELETE FROM TB_BOARD 
+            WHERE POST_ID=#{postId}
+    </delete>
+    
+    <!--  MAP -->
+    <select id="select_data_single" parameterType="java.util.Map" resultType="java.util.Map">
+            SELECT
+                A.TITLE AS TITLE, 
+                A.REG_ID AS REG_ID, 
+                A.REG_DATE AS REG_DATE, 
+                A.POST_ID AS POST_ID, 
+                A.CONTENTS AS CONTENTS, 
+                A.COMMUNITY_ID AS COMMUNITY_ID,
+                A.HIT_COUNT AS HIT_COUNT
+            FROM TB_BOARD A
+            WHERE 1=1
+            <if test="searchKeyword != null">
+                <if test="searchCondition == 'TITLE'">
+                    AND TITLE LIKE '%' || #{searchKeyword} || '%'
+                </if>
+                <if test="searchCondition == 'CONTENTS'">
+                    AND CONTENTS LIKE '%' || #{searchKeyword} || '%'
+                </if>
+            </if>
+    </select>
+    <select id="select_datalist_map" parameterType="java.util.Map" resultType="java.util.Map">
+            SELECT
+                A.TITLE AS TITLE, 
+                A.REG_ID AS REG_ID, 
+                A.REG_DATE AS REG_DATE, 
+                A.POST_ID AS POST_ID, 
+                A.CONTENTS AS CONTENTS, 
+                A.COMMUNITY_ID AS COMMUNITY_ID,
+                A.HIT_COUNT AS HIT_COUNT
+            FROM TB_BOARD A
+            WHERE 1=1
+            <if test="searchKeyword != null">
+                <if test="searchCondition == 'TITLE'">
+                    AND TITLE LIKE '%' || #{searchKeyword} || '%'
+                </if>
+                <if test="searchCondition == 'CONTENTS'">
+                    AND CONTENTS LIKE '%' || #{searchKeyword} || '%'
+                </if>
+            </if>
+    </select>
+    
+    <insert id="insert_board_map" parameterType="java.util.Map">
+            INSERT INTO TB_BOARD (
+                TITLE,
+                REG_ID,
+                CONTENTS,
+                COMMUNITY_ID
+            ) VALUES (
+                #{title},
+                #{regId},
+                #{contents},
+                #{communityId}
+            )
+    </insert>
+    
+      <update id="update_board_map" parameterType="java.util.Map">
+            UPDATE TB_BOARD 
+            SET TITLE=#{title}
+                , REG_ID=#{regId}
+                , CONTENTS=#{contents}
+                , COMMUNITY_ID=#{communityId}
+            WHERE POST_ID=#{postId}
+    </update>
+    
+    <delete id="delete_board_map" parameterType="java.util.Map">
+            DELETE FROM TB_BOARD 
+            WHERE POST_ID=#{postId}
+    </delete>
+</mapper>

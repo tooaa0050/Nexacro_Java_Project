@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org" 
+         xmlns:xsi="http://www.w3.org"
+         xsi:schemaLocation="http://maven.apache.org https://maven.apache.org">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.9</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.nexacro</groupId>
+	<artifactId>uiadapter-spring-boot3</artifactId>
+	<version>0.0.3-SNAPSHOT</version>
+	<packaging>war</packaging> <!-- 배포형식 -->
+
+	<name>uiadapter-spring-boot3</name>
+	<description>sample project of Spring Boot3 for nexacroN</description>
+	
+	<properties>
+		<java.version>17</java.version>
+		<spring.version>6.1.2</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<nexacro.xapi.version>2.0.01d-SNAPSHOT</nexacro.xapi.version>
+        <nexacro.xeni.version>1.5.02d-SNAPSHOT</nexacro.xeni.version> <!-- 1.5.02d-SNAPSHOT -->
+		<nexacro.xeni-compatible.version>1.5.02d-SNAPSHOT</nexacro.xeni-compatible.version> <!-- 1.5.02d-SNAPSHOT -->
+		<nexacro.uiadapter-core.version>1.0.24-SNAPSHOT</nexacro.uiadapter-core.version>
+		<nexacro.uiadapter-dataaccess.version>1.0.13-SNAPSHOT</nexacro.uiadapter-dataaccess.version>
+		<nexacro.uiadapter-excel.version>1.5.4.2-SNAPSHOT</nexacro.uiadapter-excel.version>
+	</properties>	
+	<repositories>
+        <!-- 투비소프트 nexacro uiadapter repository -->
+        <repository>
+            <id>tobesoft</id>
+            <url>https://mangosteen.tobesoft.co.kr/nexus/repository/tobesoft-snapshots/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        
+		<!-- Local File -->
+		<!-- 
+        <repository>
+            <id>local-repository</id>
+            <name>Local Repository</name>
+            <url>file://${project.basedir}/src/main/userlib</url>
+		</repository>
+		-->
+    </repositories>
+
+	<dependencies>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-properties-migrator</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- mybatis 라이브러리. HikariCP 포함 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-autoconfigure</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		<dependency>
+		  <groupId>commons-io</groupId>
+		  <artifactId>commons-io</artifactId>
+		  <version>2.13.0</version> <!-- Use the version that's compatible with your project -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api -->
+		<dependency>
+		    <groupId>jakarta.servlet</groupId>
+		    <artifactId>jakarta.servlet-api</artifactId>
+		</dependency>
+
+		<!-- nexacro library -->
+		<dependency>
+		  <groupId>com.nexacro</groupId>
+		  <artifactId>nexacroN-xapi-jakarta</artifactId>
+		  <version>${nexacro.xapi.version}</version> <!-- 1.0.13-SNAPSHOT -->
+		</dependency>
+		<dependency>
+		  <groupId>com.nexacro</groupId>
+		  <artifactId>nexacroN-xeni-jakarta</artifactId>
+		  <version>${nexacro.xeni.version}</version> <!-- 1.0.13-SNAPSHOT -->
+		</dependency>
+        <!-- xeni.properties 설정방식 사용해야 할 경우 추가 -->
+        <!--
+        <dependency>
+            <groupId>com.nexacro</groupId>
+            <artifactId>nexacroN-xeni-compatible</artifactId>
+            <version>${nexacro.xeni-compatible.version}</version>
+        </dependency>
+        -->
+        <!-- nexacro uiadapter library -->
+        <dependency>
+            <groupId>com.nexacro</groupId>
+            <artifactId>uiadapter-jakarta-core</artifactId>
+            <version>${nexacro.uiadapter-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nexacro</groupId>
+            <artifactId>uiadapter-jakarta-dataaccess</artifactId>
+            <version>${nexacro.uiadapter-dataaccess.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.nexacro</groupId>
+            <artifactId>uiadapter-jakarta-excel</artifactId>
+            <version>${nexacro.uiadapter-excel.version}</version>
+        </dependency>
+        		
+		<!-- jakarta/servlet/jsp/JspWriter -->
+		<dependency>
+		    <groupId>jakarta.servlet.jsp</groupId>
+		    <artifactId>jakarta.servlet.jsp-api</artifactId>
+		    <version>3.1.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		<!-- jakarta fileupload2 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-fileupload2-jakarta</artifactId>
+		    <version>2.0.0-M1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc11</artifactId>
+		    <version>23.6.0.24.10</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
+		<!-- -->
+		<dependency>
+		    <groupId>org.hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.2.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+            <scope>provided</scope>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>jakarta.activation</groupId>
+					<artifactId>jakarta.activation-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- -->
+		<dependency>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		    <version>1.16</version>
+		</dependency>
+
+		<!--
+       <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.17.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.1</version>
+        </dependency>
+         -->
+        <!-- -->
+		<dependency>
+		    <groupId>com.googlecode.log4jdbc</groupId>
+		    <artifactId>log4jdbc</artifactId>
+		    <version>1.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.clevertap.apns</groupId>
+		    <artifactId>apns-http2</artifactId>
+		    <version>2.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.jcraft</groupId>
+		    <artifactId>jsch</artifactId>
+		    <version>0.1.55</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.jcraft</groupId>
+		    <artifactId>jzlib</artifactId>
+		    <version>1.1.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.xmlbeans</groupId>
+		    <artifactId>xmlbeans</artifactId>
+		    <version>5.2.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>5.2.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml-schemas</artifactId>
+		    <version>4.1.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-scratchpad</artifactId>
+		    <version>4.1.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>failureaccess</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-resources-plugin</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

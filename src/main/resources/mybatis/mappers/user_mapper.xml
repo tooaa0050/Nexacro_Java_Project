@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.nexacro.uiadapter.mapper.UserMapper">
+
+	<select id="select_user_info" parameterType="example.nexacro.uiadapter.pojo.User" resultType="example.nexacro.uiadapter.pojo.User">
+            SELECT
+                USER_ID ,
+                USER_NAME,
+                EN_NAME,
+                COMP_PHONE,
+                PHONE,
+                CELL_PHONE,
+                COMPANY,
+                JOB_POSITION,
+                ASSIGNMENT,
+                OFFICER_YN,
+                FAX,
+                ZIP_CODE,
+                ADDRESS,
+                COMP_ZIP_CODE,
+                COMP_ADDRESS,
+                EMAIL,
+                DEPT_ID,
+                PASSWORD
+            FROM TB_USER
+            WHERE 1=1
+            
+            <if test="searchKeyword != null">
+                <if test="searchCondition == 'NAME'">
+                    AND USER_NAME LIKE '%' || #{searchKeyword} || '%'
+                </if>
+                <if test="searchCondition == 'ID'">
+                    AND USER_ID LIKE '%' || #{searchKeyword} || '%' 
+                </if>
+            </if>
+    </select>
+    
+    <select id="select_user_info_map" parameterType="java.util.Map" resultType="example.nexacro.uiadapter.pojo.User">
+            SELECT
+                USER_ID ,
+                USER_NAME,
+                EN_NAME,
+                COMP_PHONE,
+                PHONE,
+                CELL_PHONE,
+                COMPANY,
+                JOB_POSITION,
+                ASSIGNMENT,
+                OFFICER_YN,
+                FAX,
+                ZIP_CODE,
+                ADDRESS,
+                COMP_ZIP_CODE,
+                COMP_ADDRESS,
+                EMAIL,
+                DEPT_ID,
+                PASSWORD
+            FROM TB_USER
+            WHERE 1=1
+            
+            <if test="searchKeyword != null">
+                <if test="searchCondition == 'NAME'">
+                    AND USER_NAME LIKE '%' || #{searchKeyword} || '%'
+                </if>
+                <if test="searchCondition == 'ID'">
+                    AND USER_ID LIKE '%' || #{searchKeyword} || '%' 
+                </if>
+            </if>
+    </select>
+    
+    <insert id="insert_user" parameterType="example.nexacro.uiadapter.pojo.User">
+            INSERT INTO TB_USER (
+                USER_ID,
+                PASSWORD,
+                USER_NAME,
+                EN_NAME,
+                COMP_PHONE,
+                EMAIL,
+                PHONE,
+                CELL_PHONE,
+                ZIP_CODE
+            ) VALUES (
+                #{userId},
+                #{password},
+                #{userName},
+                #{enName},
+                #{compPhone},
+                #{email},
+                #{phone},
+                #{cellPhone},
+                #{zipCode}
+            )
+    </insert>
+    
+      <update id="update_user" parameterType="example.nexacro.uiadapter.pojo.User">
+            UPDATE TB_USER 
+            SET USER_NAME  = #{userName}
+              , EN_NAME    = #{enName}
+              , EMAIL      = #{email}
+              , PHONE      = #{phone}
+              , CELL_PHONE = #{cellPhone}
+            WHERE USER_ID=#{userId}
+    </update>
+    
+    <delete id="delete_user" parameterType="example.nexacro.uiadapter.pojo.User">
+            DELETE FROM TB_USER 
+            WHERE USER_ID=#{userId}
+    </delete>
+</mapper>

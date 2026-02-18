@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.nexacro.uiadapter.mapper.DeptMapper">
+	
+    <!--  POJO -->
+     <select id="select_datalist" parameterType="example.nexacro.uiadapter.pojo.Dept" resultType="example.nexacro.uiadapter.pojo.Dept">
+            SELECT
+                deptId
+				, deptName
+				, memberCount
+            FROM TB_Dept 
+            WHERE 1=1
+            <if test="searchKeyword != null">
+	           	<if test="searchCondition == 'TITLE'">
+					AND deptName LIKE '%' || #{searchKeyword} || '%'
+				</if>
+				<if test="searchCondition == 'contents'">
+	                AND deptId LIKE '%' || #{searchKeyword} || '%'
+	            </if>
+	        </if>
+    </select>
+    
+    <insert id="insert_Dept" parameterType="example.nexacro.uiadapter.pojo.Dept">
+            INSERT INTO TB_Dept (
+                deptName
+				, memberCount
+            ) VALUES (
+                #{deptName},
+                #{memberCount}
+            )
+    </insert>
+    
+      <update id="update_Dept" parameterType="example.nexacro.uiadapter.pojo.Dept">
+            UPDATE TB_Dept 
+            SET deptName=#{deptName}
+                , memberCount=#{memberCount}
+            WHERE deptId=#{deptId}
+    </update>
+    
+    <delete id="delete_Dept" parameterType="example.nexacro.uiadapter.pojo.Dept">
+            DELETE FROM TB_Dept 
+            WHERE deptId=#{deptId}
+    </delete>
+    
+    <!--  MAP -->
+    <select id="select_datalist_map" parameterType="java.util.Map" resultType="java.util.Map">
+            SELECT
+                deptId
+				, deptName
+				, memberCount
+            FROM TB_Dept 
+            WHERE 1=1
+            <if test="searchKeyword != null">
+	           	<if test="searchCondition == 'TITLE'">
+					AND deptName LIKE '%' || #{searchKeyword} || '%'
+				</if>
+				<if test="searchCondition == 'contents'">
+	                AND deptId LIKE '%' || #{searchKeyword} || '%'
+	            </if>
+            </if>
+    </select>
+    
+    <insert id="insert_Dept_map" parameterType="java.util.Map">
+            INSERT INTO TB_Dept (
+                deptName
+				, memberCount
+            ) VALUES (
+                #{deptName},
+                #{memberCount}
+            )
+    </insert>
+    
+	<update id="update_Dept_map" parameterType="java.util.Map">
+            UPDATE TB_Dept 
+            SET deptName=#{deptName}
+                , memberCount=#{memberCount}
+            WHERE deptId=#{deptId}
+    </update>
+    
+    <delete id="delete_Dept_map" parameterType="java.util.Map">
+            DELETE FROM TB_Dept 
+            WHERE deptId=#{deptId}
+    </delete>
+</mapper>

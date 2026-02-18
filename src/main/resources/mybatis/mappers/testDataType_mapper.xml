@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.nexacro.uiadapter.mapper.ExampleDataTypeMapper">
+
+    <select id="select_example_data_type_list" parameterType="java.util.Map" resultType="example.nexacro.uiadapter.pojo.ExampleDataType">
+        SELECT
+            STRING_VALUE,
+            INT_VALUE,
+            BOOLEAN_VALUE,
+            LONG_VALUE,
+            FLOAT_VALUE,
+            DOUBLE_VALUE,
+            BIG_DECIMAL_VALUE,
+            DATE_VALUE,
+            TIME_VALUE,
+            DATETIME_VALUE,
+            BYTES_VALUE
+        FROM TB_TEST_DATA_TYPE
+    </select>
+
+    <select id="select_example_data_type_map" parameterType="java.util.Map" resultType="example.nexacro.uiadapter.pojo.ExampleDataType">
+        SELECT
+            ID,
+            STRING_VALUE,
+            INT_VALUE,
+            BOOLEAN_VALUE,
+            LONG_VALUE,
+            FLOAT_VALUE,
+            DOUBLE_VALUE,
+            BIG_DECIMAL_VALUE,
+            DATE_VALUE,
+            TIME_VALUE,
+            DATETIME_VALUE,
+            BYTES_VALUE
+        FROM TB_TEST_DATA_TYPE
+    </select>
+
+    <insert id="insert_example_data_type" parameterType="example.nexacro.uiadapter.pojo.ExampleDataType">
+        INSERT INTO TB_TEST_DATA_TYPE (
+            STRING_VALUE,
+            INT_VALUE,
+            BOOLEAN_VALUE,
+            LONG_VALUE,
+            FLOAT_VALUE,
+            DOUBLE_VALUE,
+            BIG_DECIMAL_VALUE,
+            DATE_VALUE,
+            DATETIME_VALUE,
+            TIME_VALUE,
+            BYTES_VALUE
+        ) VALUES (
+            #{stringValue},
+            #{intValue},
+            #{booleanValue},
+            #{longValue},
+            #{floatValue},
+            #{doubleValue},
+            #{bigDecimalValue},
+            #{dateValue},
+            #{dateTimeValue},
+            #{timeValue},
+            #{bytesValue}
+        )
+    </insert>
+
+    <update id="update_example_data_type" parameterType="example.nexacro.uiadapter.pojo.ExampleDataType">
+        UPDATE TB_TEST_DATA_TYPE
+        SET
+            STRING_VALUE = #{stringValue},
+            INT_VALUE = #{intValue},
+            BOOLEAN_VALUE = #{booleanValue},
+            LONG_VALUE = #{longValue},
+            FLOAT_VALUE = #{floatValue},
+            DOUBLE_VALUE = #{doubleValue},
+            BIG_DECIMAL_VALUE = #{bigDecimalValue},
+            DATE_VALUE = #{dateValue},
+            DATETIME_VALUE = #{dateTimeValue},
+            TIME_VALUE = #{timeValue},
+            BYTES_VALUE = #{bytesValue}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete_example_data_type" parameterType="example.nexacro.uiadapter.pojo.ExampleDataType">
+        DELETE FROM TB_TEST_DATA_TYPE
+        WHERE ID = #{id}
+    </delete>
+
+
+    <insert id="insert_example_data_type_map" parameterType="java.util.Map">
+        INSERT INTO TB_TEST_DATA_TYPE (
+            STRING_VALUE,
+            INT_VALUE,
+            BOOLEAN_VALUE,
+            LONG_VALUE,
+            FLOAT_VALUE,
+            DOUBLE_VALUE,
+            BIG_DECIMAL_VALUE,
+            DATE_VALUE,
+            TIME_VALUE,
+            DATETIME_VALUE,
+            BYTES_VALUE
+        ) VALUES (
+            #{stringValue},
+            #{intValue},
+            #{booleanValue},
+            #{longValue},
+            #{floatValue},
+            #{doubleValue},
+            #{bigDecimalValue},
+            #{dateValue},
+            #{timeValue},
+            #{dateTimeValue},
+            #{bytesValue}
+        )
+    </insert>
+
+    <update id="update_example_data_type_map" parameterType="java.util.Map">
+        UPDATE TB_TEST_DATA_TYPE
+        SET
+            STRING_VALUE = #{stringValue},
+            INT_VALUE = #{intValue},
+            BOOLEAN_VALUE = #{booleanValue},
+            LONG_VALUE = #{longValue},
+            FLOAT_VALUE = #{floatValue},
+            DOUBLE_VALUE = #{doubleValue},
+            BIG_DECIMAL_VALUE = #{bigDecimalValue},
+            DATE_VALUE = #{dateValue},
+            DATETIME_VALUE = #{dateTimeValue},
+            TIME_VALUE = #{timeValue},
+            BYTES_VALUE = #{bytesValue}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete_example_data_type_map" parameterType="java.util.Map">
+        DELETE FROM TB_TEST_DATA_TYPE
+        WHERE ID = #{id}
+    </delete>
+</mapper>

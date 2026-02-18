@@ -1,0 +1,104 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /uiadapter
+
+spring:
+  main:
+    banner-mode: "console"
+  web:
+    resources:
+      static-locations: classpath:/static/ 
+#    mvc:
+#      static-path-pattern: /webapp/**
+  servlet:
+    session:
+      timeout: 1m # 1800 # 초
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      file-size-threshold: 1MB
+      max-request-size: 20MB
+      location: ${java.io.tmpdir} # C:/Temp
+  http:
+    multipart:
+      enabled: false
+
+#  cache:
+#    ehcache: 
+#      config: classpath:ehcache.xml
+  sql:
+    init:
+      mode: always
+      platform: hsqldb #oracle hsqldb, h2, oracle, mysql, postgresql
+#=================================================
+# 단일 DB 사용 설정 
+#=================================================
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    #driver-class-name: net.sf.log4jdbc.DriverSpy
+    url: jdbc:log4jdbc:hsqldb:mem:sampledb
+    username: sa
+    password: ''
+    hikari:
+      max-lifetime: 58000
+      connection-timeout: 58000
+mybatis:
+  config-location: classpath:mybatis/sql-mapper-config.xml
+  mapper-locations:
+  - classpath:mybatis/mappers/*mapper.xml
+
+# logging.level.org.springframework.security=TRACE
+logging:
+  level:
+    org.springframwork.web: TRACE
+    sql: off
+    jdbc: off
+    jdbc.sqlonly: debug
+    jdbc.resultsettable: debug
+    com.nexacro.uiadapter.jakarta.core.view.NexacroStreamView: DEBUG
+
+
+# 영상 스트리밍 설정
+media:
+  storage:
+    base-path: D:\workspace\vscode\uiadapter-jakarta-1\src\main\resources\static\videos
+    use-context-path: false
+    allowed-extensions:
+      - mp4
+      - avi
+      - mov
+      - wmv
+    max-file-size: 500MB
+
+#=================================================    
+# boot의 경우 spring f/w에서 사용하던 변수명을 아래와 같이 변경.
+# spring f/w은 uiadapter 1.3 이하 버전에서는 아래와 같이 사용
+#  uiAdapter.getHeader.WhoAreYou
+#  uiAdapter.useRequestCharset
+#  uiAdapter.useRequestContentType
+#  uiAdapter.trimParamDataSet
+#  uiAdapter.trimParamVariable
+#  uiAdapter.replaceAllEmptyVariable
+
+# column-case 지원 : camel(whoAreYou), snake(who_are_you),upper(WHO_ARE_YOU)
+# column-case 미지원 : kebab(who-are-you)
+# who-are-you: nexacro (deprecated)
+#=================================================
+nexacro:
+#  client-column-case: 
+#  db-column-case: 
+#  use-request-charset: all
+#  use-request-contenttype: 
+#  trim-paramdataset: all
+#  trim-paramvariable: all
+#  replace-all-empty-variable: all
+  stream:
+    type: clasic            # clasic, NIO, adaptive-buffer, aSnyc, memory-mapping
+    buffer-size: 65536      # 64KB (기본값)
+    max-file-size: 500MB    # 최대 파일 크기 - ("500MB", "1GB" 등 지원)
+    adaptive-buffer: true   # 적응형 버퍼 사용
+    use-nio: true           # NIO 사용 여부
+    memory-mapping: false   # 메모리 매핑 사용 (대용량 파일)
+    #async-streaming: false  # 비동기 스트리밍 사용
+    max-concurrent-streams: 10 # 최대 동시 스트리밍 수

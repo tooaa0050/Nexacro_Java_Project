@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.nexacro.uiadapter.mapper.LargeDataMapper">
+
+    <!--
+        대량 데이터 조회 쿼리
+        - resultType="map": 결과를 Map 형태로 반환
+        - fetchSize="1000": JDBC 레벨에서 한번에 가져올 row 수
+          (데이터베이스와의 통신 횟수를 줄여 성능 향상)
+        - resultSets는 사용하지 않고 resultHandler를 통해 처리
+    -->
+    <select id="selectLargeData" resultType="map" fetchSize="1000">
+        SELECT 
+            LARGE_ID,
+            NAME,
+            REG_DATE,
+            STORY,
+            STATUS
+        FROM TB_LARGE
+        ORDER BY LARGE_ID
+    </select>
+
+</mapper>

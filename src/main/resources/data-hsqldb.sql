@@ -1,0 +1,82 @@
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title1', 'content..', null, SYSDATE, 1,  'Hidden Field', 10, true );
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title2', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title3', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title4', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title5', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title6', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title7', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title8', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , true);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title9', 'content..', null, SYSDATE, 2,  'Hidden Field', 8 , true);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title10', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title11', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , true);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title12', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title13', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title14', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title15', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title16', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title17', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , true);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title18', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title19', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , true);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title20', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title21', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title22', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+insert into TB_BOARD ( TITLE, CONTENTS, REG_ID, REG_DATE, COMMUNITY_ID, HIDDEN_INFO, HIT_COUNT, IS_NOTICE ) values ( 'title23', 'content..', null, SYSDATE, 2, 'Hidden Field', 8 , false);
+
+insert into TB_USER ( USER_ID, USER_NAME, EN_NAME, COMP_PHONE, PHONE, CELL_PHONE, COMPANY, JOB_POSITION, ASSIGNMENT, OFFICER_YN, FAX, ZIP_CODE, ADDRESS, COMP_ZIP_CODE, COMP_ADDRESS, EMAIL, DEPT_ID, PASSWORD ) values ( 'hong', '홍길동', 'hong gil dong', '02-2140-7700', '02-2140-7700', '010-1111-2222','투비소프트', '과장','개발', 'Y','02-2140-7798','223232','서울시 강남구 봉은사로','223232','서울시 강남구 봉은사로','hong@tobesoft.com','DEPT-001','1111');
+
+insert into TB_DEPT ( deptName, memberCount ) values ( '인사팀', 8);
+insert into TB_DEPT ( deptName, memberCount ) values ( '영업팀', 12);
+insert into TB_DEPT ( deptName, memberCount ) values ( '연구팀', 51);
+insert into TB_DEPT ( deptName, memberCount ) values ( '홍보팀', 3);
+insert into TB_DEPT ( deptName, memberCount ) values ( '지원팀', 26);
+
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample1', 1, true, 1001, 1.1, 1.11, 1001.11, SYSDATE, '2024-08-05 12:00:01', CURRENT_TIMESTAMP, X'89504E470D0A1A0A'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample2', 2, false, 1002, 2.2, 2.22, 1002.22, SYSDATE, '2024-08-05 12:00:02', CURRENT_TIMESTAMP, X'FFD8FFE000104A464946'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample3', 3, true, 1003, 3.3, 3.33, 1003.33, SYSDATE, '2024-08-05 12:00:03', CURRENT_TIMESTAMP, X'474946383961'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample4', 4, false, 1004, 4.4, 4.44, 1004.44, SYSDATE, '2024-08-05 12:00:04', CURRENT_TIMESTAMP, X'89504E470D0A1A0A'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample5', 5, true, 1005, 5.5, 5.55, 1005.55, SYSDATE, '2024-08-05 12:00:05', CURRENT_TIMESTAMP, X'FFD8FFE000104A464946'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample6', 6, false, 1006, 6.6, 6.66, 1006.66, SYSDATE, '2024-08-05 12:00:06', CURRENT_TIMESTAMP, X'474946383961'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample7', 7, true, 1007, 7.7, 7.77, 1007.77, SYSDATE, '2024-08-05 12:00:07', CURRENT_TIMESTAMP, X'89504E470D0A1A0A'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample8', 8, false, 1008, 8.8, 8.88, 1008.88, SYSDATE, '2024-08-05 12:00:08', CURRENT_TIMESTAMP, X'FFD8FFE000104A464946'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample9', 9, true, 1009, 9.9, 9.99, 1009.99, SYSDATE, '2024-08-05 12:00:09', CURRENT_TIMESTAMP, X'474946383961'
+);
+insert into TB_TEST_DATA_TYPE (
+    STRING_VALUE, INT_VALUE, BOOLEAN_VALUE, LONG_VALUE, FLOAT_VALUE, DOUBLE_VALUE, BIG_DECIMAL_VALUE, DATE_VALUE, TIME_VALUE, DATETIME_VALUE, BYTES_VALUE
+) values (
+    'sample10', 10, false, 1010, 10.1, 10.10, 1010.10, SYSDATE, '2024-08-05 12:00:10', CURRENT_TIMESTAMP, X'89504E470D0A1A0A'
+);
